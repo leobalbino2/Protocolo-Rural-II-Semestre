@@ -10,7 +10,17 @@
     --gray3: #777777;
     --red: #d83b3b;
   }
-  
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    min-height: 70vh;
+  }
+
   .no-border-radius .modal-content {
     border-radius: 0;
   }
@@ -18,7 +28,17 @@
   footer {
     background-color: var(--green);
   }
+
+  .fixed-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
   
+  .main-content {
+    flex: 1 0 auto;
+  }
+
   .rodape-p {
     color: var(--gray);
     font-size: 0.8em;

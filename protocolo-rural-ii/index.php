@@ -24,3 +24,4 @@ if ($nome_rota === '') {
 }
 
 $route->verificar_rota($_SERVER["REQUEST_METHOD"], $nome_rota);
+?>

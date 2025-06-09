@@ -24,7 +24,7 @@
             Uma solução prática e eficiente para avaliar a sustentabilidade de
             agrossistemas com base em indicadores.
           </p>
-          <a class="text-decoration-none btn-saiba" href="sobre/index.html"
+          <a class="text-decoration-none btn-saiba" href="<?=$base?>/sobre"
             ><button
               type="button"
               class="btn btn-lg btn-saiba btn-border-1 my-3 text-decoration-none"

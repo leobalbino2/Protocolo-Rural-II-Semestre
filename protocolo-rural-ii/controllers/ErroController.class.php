@@ -2,7 +2,7 @@
 
 class ErroController
 {
-    public function PaginaNaoEncontrada()
+    public function paginanaoencontrada()
     {
         $pagina = 'pagina-nao-encontrada';
         $style = array("./assets/styles/style.css");

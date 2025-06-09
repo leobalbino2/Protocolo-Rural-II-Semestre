@@ -26,10 +26,12 @@
         id="nav"
         class="navbar fixed-top min-vh-10 d-flex align-items-center bg-body-tertiary"
       >
+
+        <?php $base = '/protocolo-rural-ii'; ?>
         <div class="container">
           <!------------------------------------------- Logo ------------------------------------------->
           <div class="col-2 d-flex">
-            <a class="navbar-brand" href="index.php?pagina=inicio">
+            <a class="navbar-brand" href="<?=$base?>/">
               <img
                 class="d-none d-lg-block mt-2"
                 src="./uploads/logo.png"
@@ -48,7 +50,6 @@
           </div>
 
           <!------------------------------------------- Menu Desktop ------------------------------------------->
-          <?php $base = '/protocolo-rural-ii'; ?>
           <div class="col-8 d-none d-lg-block">
             <ul class="nav me-auto list-inline fs-5 justify-content-center">
               <li class="nav-item">

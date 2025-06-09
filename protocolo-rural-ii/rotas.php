@@ -30,11 +30,30 @@ class Rotas
 
 $route = new Rotas();
 
+//Sessão
+$route->get("/login", array(LoginController::class, "login"));
+$route->post("/login", array(LoginController::class, "login"));
+
+$route->get("/cadastro", array(CadastroController::class, "cadastro"));
+$route->post("/cadastro", array(CadastroController::class, "cadastro"));
+
+$route->get("/esqueciSenha", array(EsqueciSenhaController::class, "esqueciSenha"));
+$route->post("/esqueciSenha", array(EsqueciSenhaController::class, "esqueciSenha"));
+
+//Início
 $route->get("/", [InicioController::class, "inicio"]);
+
+//Sobre
 $route->get("/sobre", [SobreController::class, "sobre"]);
+
+//Quem Somos
 $route->get("/quemsomos", [QuemSomosController::class, "quemsomos"]);
+
+//Contato
 $route->get("/contato", [ContatoController::class, "contato"]);
 
-$route->get("/pagina-nao-encontrada", [ErroController::class, "PaginaNaoEncontrada"]);
+//Erro
+$route->get("/pagina-nao-encontrada", [ErroController::class, "paginanaoencontrada"]);
 
 return $route;
+?>
