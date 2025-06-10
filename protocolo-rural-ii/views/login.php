@@ -3,6 +3,11 @@
   <?php $base = '/protocolo-rural-ii'; ?>
   <div class="container mt-5 pt-5">
     <div class="container col-12 col-lg-6 border">
+
+      <?php if (isset($erro)) : ?>
+        <div class="alert alert-danger text-center mt-3"><?= $erro ?></div>
+      <?php endif; ?>
+
       <form
         class="col-11 mx-auto d-flex flex-column justify-content-center"
         action="<?=$base?>/login"
@@ -10,13 +15,12 @@
       >
         <div class="d-flex mt-2">
           <img
-            class="cursor-pointer"
+            class="cursor-pointer d-none d-lg-block pe-auto"
             id="voltar"
-            class="d-none d-lg-block pe-auto"
-            src="<?=$base?>/uploads/seta.png"
+            src="<?= $base ?>/uploads/seta.png"
             alt="voltar"
             width="29"
-            onclick="window.history.back()"
+            onclick="window.location.href='<?= $base ?>/'"
           />
 
           <h5 class="fw-bold m-3 text-center">Bem-vindo de volta!</h5>

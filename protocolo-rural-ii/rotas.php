@@ -2,7 +2,7 @@
 
 class Rotas
 {
-    public array $rotas = array();
+    public array $rotas = [];
 
     public function get(string $nome_rota, array $dados)
     {
@@ -18,12 +18,13 @@ class Rotas
     {
         if (isset($this->rotas[$metodo][$nome_rota])) {
             $dados = $this->rotas[$metodo][$nome_rota];
-            $method = $dados[1];
-            $obj = new $dados[0]();
-            return $obj->$method();
+            $controller = new $dados[0]();
+            $metodo_controller = $dados[1];
+
+            return $controller->$metodo_controller();
         } else {
-            header("location:/protocolo-rural-ii/pagina-nao-encontrada");
-            die();
+            header("Location: /protocolo-rural-ii/pagina-nao-encontrada");
+            exit;
         }
     }
 }
@@ -37,8 +38,11 @@ $route->post("/login", array(LoginController::class, "login"));
 $route->get("/cadastro", array(CadastroController::class, "cadastro"));
 $route->post("/cadastro", array(CadastroController::class, "cadastro"));
 
-$route->get("/esqueciSenha", array(EsqueciSenhaController::class, "esqueciSenha"));
-$route->post("/esqueciSenha", array(EsqueciSenhaController::class, "esqueciSenha"));
+// Logout
+$route->get("/logout", [LogoutController::class, "logout"]);
+
+//Painel
+$route->get("/painel", [PainelController::class, "painel"]);
 
 //Início
 $route->get("/", [InicioController::class, "inicio"]);
