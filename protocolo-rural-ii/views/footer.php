@@ -1,15 +1,8 @@
-<!------------------------------------------- Footer ------------------------------------------->
 <footer class="row-5">
       <div class="p-5 mt-5">
-        <ul
-          class="nav me-auto list-inline fs-5 justify-content-center rodape-menu"
-        >
+        <ul class="nav me-auto list-inline fs-5 justify-content-center rodape-menu">
           <li class="nav-item mx-2">
-            <a
-              href="<?=$base?>/"
-              class="txt-white text text-decoration-none font-weight-normal"
-              >Inicio</a
-            >
+            <a href="<?=$base?>/" class="txt-white text text-decoration-none font-weight-normal">Inicio</a>
           </li>
           <li class="nav-item mx-2">
             <a

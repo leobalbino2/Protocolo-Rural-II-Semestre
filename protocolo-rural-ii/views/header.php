@@ -1,3 +1,8 @@
+<?php
+session_start();
+$base = '/protocolo-rural-ii';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>

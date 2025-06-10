@@ -8,15 +8,14 @@ class CadastroController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nome = $_POST['nome'] ?? '';
             $email = $_POST['email'] ?? '';
-            $telefone = $_POST['telefone'] ?? '';
+            $celular = $_POST['celular'] ?? '';
             $senha = $_POST['senha'] ?? '';
             $confirmar_senha = $_POST['confirmar_senha'] ?? '';
 
-            // Verifica se há campo vazio
-            if (!$nome || !$email || !$telefone || !$senha || !$confirmar_senha) {
-            $erro = "Por favor, preencha todos os campos.";
+            // Verifica se há campos vazios
+            if (!$nome || !$email || !$celular || !$senha || !$confirmar_senha) {
+                $erro = "Por favor, preencha todos os campos.";
             }
-
             elseif ($senha !== $confirmar_senha) {
                 $erro = "As senhas não coincidem.";
             } else {
@@ -26,8 +25,8 @@ class CadastroController {
                 $hash = password_hash($senha, PASSWORD_DEFAULT);
 
                 try {
-                    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, email, telefone, senha) VALUES (?, ?, ?, ?)");
-                    $stmt->execute([$nome, $email, $telefone, $hash]);
+                    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, email, celular, senha) VALUES (?, ?, ?, ?)");
+                    $stmt->execute([$nome, $email, $celular, $hash]);
                 
                     header('Location: /protocolo-rural-ii/login');
                     exit;

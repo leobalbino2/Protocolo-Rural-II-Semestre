@@ -6,7 +6,7 @@ class Conexao
     public static function conectar()
     {
         if (!isset(self::$instancia)) {
-            $dsn = "mysql:host=localhost;dbname=protocolorural;charset=utf8";
+            $dsn = "mysql:host=localhost;dbname=protocolo_rural;charset=utf8";
             $usuario = "root";
             $senha = "";
 
