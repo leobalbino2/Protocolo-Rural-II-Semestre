@@ -1,3 +1,5 @@
+CREATE TABLE protocolo_rural;
+
 USE protocolo_rural;
  
 -- Usuários
