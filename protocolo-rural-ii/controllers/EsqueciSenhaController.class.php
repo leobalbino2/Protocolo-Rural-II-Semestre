@@ -11,3 +11,4 @@ class EsqueciSenhaController {
         include './views/footer.php';
     }
 }
+?>

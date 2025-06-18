@@ -11,3 +11,4 @@ class QuemSomosController {
         include './views/footer.php';
     }
 }
+?>

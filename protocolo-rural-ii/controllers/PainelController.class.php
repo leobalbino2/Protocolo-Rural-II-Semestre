@@ -17,3 +17,4 @@ class PainelController {
         include './views/footer.php';
     }
 }
+?>

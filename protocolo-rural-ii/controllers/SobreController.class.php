@@ -11,3 +11,4 @@ class SobreController {
         include './views/footer.php';
     }
 }
+?>

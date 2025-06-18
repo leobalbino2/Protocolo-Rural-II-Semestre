@@ -11,3 +11,4 @@ class InicioController {
         include './views/footer.php';
     }
 }
+?>

@@ -41,3 +41,4 @@ class CadastroController {
         include './views/footer.php';
     }
 }
+?>

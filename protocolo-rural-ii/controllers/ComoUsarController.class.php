@@ -11,3 +11,4 @@ class ComoUsarController {
         include './views/footer.php';
     }
 }
+?>

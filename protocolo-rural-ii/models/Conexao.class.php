@@ -21,3 +21,4 @@ class Conexao
         return self::$instancia;
     }
 }
+?>

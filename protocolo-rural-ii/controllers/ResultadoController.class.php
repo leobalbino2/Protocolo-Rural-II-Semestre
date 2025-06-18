@@ -11,3 +11,4 @@ class Resultado {
         include './views/footer.php';
     }
 }
+?>
