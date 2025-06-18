@@ -36,7 +36,7 @@
   </div>
 
   <!------------------------------------------- Início Card-2 ------------------------------------------->
-  <div class="container">
+  <div class="container" >
     <div class="row top-5 mt-5">
       <div class="card1 col-12 col-md-4 mb-5">
         <div class="card border-0 rounded-0 p-1">

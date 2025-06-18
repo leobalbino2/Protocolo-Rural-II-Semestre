@@ -1,13 +1,13 @@
-<main>
+<main style="background-color: #f3f3f3">
   <!----------------------------------- Cadastro ----------------------------------->
   <div class="container mt-5 pt-5">
-    <div class="container col-12 col-lg-6 border">
+    <div class="container col-12 col-lg-6 border" style="background-color: #ffffff">
 
       <?php if (isset($erro)) : ?>
         <div class="alert alert-danger text-center mt-3"><?= $erro ?></div>
       <?php endif; ?>
 
-    <form class="col-11 mx-auto d-flex flex-column justify-content-center" action="/protocolo-rural-ii/cadastro" method="post">
+    <form class="col-11 mx-auto d-flex flex-column justify-content-center" action="/protocolo-rural-ii/cadastro" method="post" style="background-color: #ffffff">
         <div class="d-flex mt-2">
           <img
             class="cursor-pointer d-none d-lg-block pe-auto"
@@ -53,7 +53,7 @@
         <button type="submit" class="btn btn-sbmt my-2 txt-gray2">
           Continuar com Google
         </button>
-        <a href="../esqueciSenha/index.html" type="submit" class="btn btn-sbmt mt-2 mb-4 txt-gray2">
+        <a href="<?=$base?>/esqueciSenha" type="submit" class="btn btn-sbmt mt-2 mb-4 txt-gray2">
           Esqueci minha senha
         </a>
       </form>

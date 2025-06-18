@@ -38,8 +38,11 @@ $route->post("/login", array(LoginController::class, "login"));
 $route->get("/cadastro", array(CadastroController::class, "cadastro"));
 $route->post("/cadastro", array(CadastroController::class, "cadastro"));
 
-// Logout
+//Logout
 $route->get("/logout", [LogoutController::class, "logout"]);
+
+//Esqueci Senha
+$route->get("/esqueciSenha", [EsqueciSenhaController::class, "esqueciSenha"]);
 
 //Painel
 $route->get("/painel", [PainelController::class, "painel"]);

@@ -245,7 +245,7 @@
   }
   
   .fundo-tabela, th{
-    background-color: var(--green) !important;
+    background-color: var(--red) !important;
     color: var(--white) !important;
   }
   

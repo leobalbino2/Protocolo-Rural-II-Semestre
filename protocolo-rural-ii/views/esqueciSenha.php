@@ -1,7 +1,7 @@
-<main>
+<main style="background-color: #f3f3f3">
     <!----------------------------------- Esqueci Senha ----------------------------------->
     <div class="container mt-5 pt-5">
-        <div class="container col-12 col-lg-6 border">
+        <div class="container col-12 col-lg-6 border" style="background-color: #ffffff">
             <form class="col-11 mx-auto d-flex flex-column justify-content-center" action="<?=$base?>/esqueciSenha" method="post">
                 <div class="d-flex mt-2">
                     <img class="cursor-pointer d-none d-lg-block pe-auto" id="voltar" src="<?=$base?>/uploads/seta.png" alt="voltar" width="29" onclick="window.history.back()" />

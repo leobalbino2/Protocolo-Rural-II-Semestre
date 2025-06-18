@@ -7,7 +7,7 @@
 	*/
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "user";
+    $password = "123";
     $dbname = "login";
 ?>

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 $base = '/protocolo-rural-ii';
 ?>
 
@@ -28,10 +30,7 @@ $base = '/protocolo-rural-ii';
   <!------------------------------------------- Cabeçalho ------------------------------------------->
     <header>
         <?php $base = '/protocolo-rural-ii'; ?>
-        <nav
-            id="nav"
-        class="navbar fixed-top min-vh-10 d-flex align-items-center bg-body-tertiary"
-      >
+        <nav id="nav" class="navbar fixed-top min-vh-10 d-flex align-items-center" style="background-color: #ffffff">
         <div class="container justify-content-center">
           <!------------------------------------------- Logo ------------------------------------------->
           <a class="navbar-brand mx-auto" href="<?=$base?>/">
