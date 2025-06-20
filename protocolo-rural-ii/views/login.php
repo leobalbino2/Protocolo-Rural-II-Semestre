@@ -2,11 +2,11 @@
 // Página de Login - Página HTML estruturada com PHP
 ?>
 
-<main style="background-color: #f3f3f3">
+<main>
   <!----------------------------------- Login ----------------------------------->
   <?php $base = '/protocolo-rural-ii'; ?>
   <div class="container mt-5 pt-5">
-    <div class="container col-12 col-lg-6 border" style="background-color: #ffffff">
+    <div class="container col-12 col-lg-6 border">
 
       <?php if (isset($erro)) : ?>
         <div class="alert alert-danger text-center mt-3"><?= $erro ?></div>

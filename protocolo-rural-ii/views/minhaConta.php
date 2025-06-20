@@ -9,24 +9,19 @@
         <div class="borda-verde"> </div>
 
         <div class="d-flex flex-row">
-          <div class="col-6">
-            <h3 class="me-3 pe-5">Nome Completo</h3>
-            <p class="me-3 bg-body-tertiary">Exemplo Nome</p>
+          <div class="col-4">
+            <h3 class="me-3 pe-5">Nome</h3>
+            <p><?= htmlspecialchars($dados['nome']) ?></p>
           </div>
-          <div class="col-6">
-            <h3 class="me-3">Telefone</h3>
-            <p class="bg-body-tertiary">(11) 1111-11111</p>
-          </div>
-        </div>
 
-        <div class="d-flex flex-row">
-          <div class="col-6">
+          <div class="col-4">
             <h3 class="me-3">Email</h3>
-            <p class="me-3 bg-body-tertiary">exemploEmail@gmail.com</p>
+            <p><?= htmlspecialchars($dados['email']) ?></p>
           </div>
-          <div class="col-6">
-            <h3 class="me-3">Senha</h3>
-            <p class="bg-body-tertiary">********</p>
+
+          <div class="col-4">
+            <h3 class="me-3">Telefone</h3>
+            <p><?= htmlspecialchars($dados['celular']) ?></p>
           </div>
         </div>
 
@@ -68,7 +63,7 @@
                   </div>
               </div>
           </div>
-  
+
           <div class="col-md-6 mb-3">
               <div class="accordion accordion-flush" id="accordionSenha">
                   <div class="accordion-item">

@@ -27,8 +27,9 @@ class LoginController {
 
             if ($usuario && password_verify($senha, $usuario['senha'])) {
                 session_start();
-                $_SESSION['usuario'] = $usuario['email']; 
-
+                $_SESSION['id_usuario'] = $usuario['id_usuario'];
+                $_SESSION['usuario'] = $usuario['email'];
+            
                 header('Location: /protocolo-rural-ii/painel');
                 exit;
             } else {

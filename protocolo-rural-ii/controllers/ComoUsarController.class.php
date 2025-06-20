@@ -6,7 +6,7 @@ class ComoUsarController {
         $pagina = 'comousar';
         $style = array("./assets/styles/style.css");
 
-        include './views/header.php';
+        include './views/headerLog.php';
         include './views/comoUsar.php';
         include './views/footer.php';
     }

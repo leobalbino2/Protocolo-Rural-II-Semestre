@@ -129,6 +129,7 @@
     color: var(--white);
   }
   
+  .green-actv-2,
   .green-actv-2:focus,
   .green-actv-2:active {
     color: var(--white);
@@ -244,9 +245,13 @@
     margin-bottom: 30vh;
   }
   
-  .fundo-tabela, th{
-    background-color: var(--red) !important;
-    color: var(--white) !important;
+  .fundo-tabela th {
+    background-color: var(--green) !important;
+    color: var(--white) 
+  }
+  
+  .fundo-header {
+    background-color: var(--gray) !important;
   }
   
   /*____________________________________________________________________________*/

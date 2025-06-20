@@ -17,8 +17,6 @@ class Conexao
                 die("Erro na conexão com o banco: " . $e->getMessage());
             }
         }
-
         return self::$instancia;
     }
 }
-?>

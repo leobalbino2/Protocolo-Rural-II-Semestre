@@ -31,7 +31,7 @@ $base = '/protocolo-rural-ii';
     <header>
       <nav
         id="nav"
-        class="navbar fixed-top min-vh-10 d-flex align-items-center bg-body-tertiary"
+        class="navbar fixed-top min-vh-10 d-flex align-items-center fundo-header"
       >
 
         <?php $base = '/protocolo-rural-ii'; ?>

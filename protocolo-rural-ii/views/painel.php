@@ -9,6 +9,7 @@
       <h3 class="fw-bold pb-2 mt-4">Painel de Avaliações</h3>
       <a href="./avaliacao/index.html" class="btn btn-sbmt2" data-bs-toggle="modal" data-bs-target="#criarAvaliacao">Criar Nova Avaliação</a>
     </div>
+    
     <div class="table-responsive ">
       <table class="table">
         <thead class="fundo-tabela">

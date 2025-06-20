@@ -38,6 +38,9 @@ $route->post("/login", array(LoginController::class, "login"));
 $route->get("/cadastro", array(CadastroController::class, "cadastro"));
 $route->post("/cadastro", array(CadastroController::class, "cadastro"));
 
+//Minha Conta
+$route->get("/minhaconta", [MinhaContaController::class, "minhaConta"]);
+
 //Logout
 $route->get("/logout", [LogoutController::class, "logout"]);
 
@@ -47,6 +50,9 @@ $route->get("/esqueciSenha", [EsqueciSenhaController::class, "esqueciSenha"]);
 //Painel
 $route->get("/painel", [PainelController::class, "painel"]);
 
+//Como Usar
+$route->get("/comousar", [ComoUsarController::class, "comoUsar"]);
+
 //Início
 $route->get("/", [InicioController::class, "inicio"]);
 
@@ -54,7 +60,7 @@ $route->get("/", [InicioController::class, "inicio"]);
 $route->get("/sobre", [SobreController::class, "sobre"]);
 
 //Quem Somos
-$route->get("/quemsomos", [QuemSomosController::class, "quemsomos"]);
+$route->get("/quemsomos", [QuemSomosController::class, "quemSomos"]);
 
 //Contato
 $route->get("/contato", [ContatoController::class, "contato"]);

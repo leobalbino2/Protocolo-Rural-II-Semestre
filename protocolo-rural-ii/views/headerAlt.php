@@ -30,7 +30,7 @@ $base = '/protocolo-rural-ii';
   <!------------------------------------------- Cabeçalho ------------------------------------------->
     <header>
         <?php $base = '/protocolo-rural-ii'; ?>
-        <nav id="nav" class="navbar fixed-top min-vh-10 d-flex align-items-center" style="background-color: #ffffff">
+        <nav id="nav" class="navbar fixed-top min-vh-10 d-flex align-items-center fundo-header">
         <div class="container justify-content-center">
           <!------------------------------------------- Logo ------------------------------------------->
           <a class="navbar-brand mx-auto" href="<?=$base?>/">
