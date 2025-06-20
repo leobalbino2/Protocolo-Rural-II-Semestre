@@ -1,3 +1,7 @@
+<?php
+// Quem Somos - Página HTML estruturada com PHP
+?>
+
 <main>
   <!------------------------------------------- Quem Somos ------------------------------------------->
   <div class="container mt-5 pt-5">

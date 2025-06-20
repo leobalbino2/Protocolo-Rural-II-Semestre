@@ -1,3 +1,7 @@
+<?php
+// Contato - Página HTML estruturada com PHP
+?>
+
 <main>
   <!----------------------------------- Contato ----------------------------------->
   <div class="container mt-5 pt-5">

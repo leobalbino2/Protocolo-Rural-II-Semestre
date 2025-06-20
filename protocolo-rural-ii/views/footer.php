@@ -1,3 +1,7 @@
+<?php
+// Footer - Página HTML estruturada com PHP
+?>
+
 <footer class="row-5">
       <div class="p-5 mt-5">
         <ul class="nav me-auto list-inline fs-5 justify-content-center rodape-menu">

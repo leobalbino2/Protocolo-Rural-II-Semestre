@@ -1,4 +1,7 @@
-<!----------------------------------- Main ----------------------------------->
+<?php
+// Avaliação - Página HTML estruturada com PHP
+?>
+
 <main>
       <div class="container mt-5 pt-5 pb-5">
         <div>

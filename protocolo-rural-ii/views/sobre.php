@@ -1,3 +1,7 @@
+<?php
+// Página Sobre o Site - Página HTML estruturada com PHP
+?>
+
 <main>
   <!------------------------------------------- Quem Somos ------------------------------------------->
   <article>

@@ -1,3 +1,7 @@
+<?php
+// Página Minha Conta - Página HTML estruturada com PHP
+?>
+
 <main>
       <!------------------------------------------- Início ------------------------------------------->
       <div class="container mt-5 pt-5 pb-5">

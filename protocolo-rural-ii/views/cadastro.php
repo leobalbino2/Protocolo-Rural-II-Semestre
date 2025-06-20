@@ -1,3 +1,7 @@
+<?php
+// Cadastro - Página HTML estruturada com PHP
+?>
+
 <main style="background-color: #f3f3f3">
   <!----------------------------------- Cadastro ----------------------------------->
   <div class="container mt-5 pt-5">

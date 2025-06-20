@@ -1,3 +1,7 @@
+<?php
+// Página Inicial - Página HTML estruturada com PHP
+?>
+
 <main>
   <!------------------------------------------- Início ------------------------------------------->
   <div class="card d-flex img-1 border-0">

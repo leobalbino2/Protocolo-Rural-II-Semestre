@@ -1,3 +1,7 @@
+<?php
+// Página de Login - Página HTML estruturada com PHP
+?>
+
 <main style="background-color: #f3f3f3">
   <!----------------------------------- Login ----------------------------------->
   <?php $base = '/protocolo-rural-ii'; ?>
