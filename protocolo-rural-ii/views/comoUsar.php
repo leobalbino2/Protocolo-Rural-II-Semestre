@@ -6,7 +6,7 @@
       <!------------------------------------------- Início ------------------------------------------->
       <div class="container mt-5 pt-5 pb-5">
 
-        <h3 class="fw-bold pb-2 mt-4">Como Usar</h3>
+        <h3 class="pb-2 mt-4">Como Usar</h3>
 
         <div class="borda-verde"> </div>
 

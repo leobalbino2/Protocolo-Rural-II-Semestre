@@ -5,7 +5,7 @@
 <main>
       <!------------------------------------------- Início ------------------------------------------->
       <div class="container mt-5 pt-5 pb-5">
-        <h3 class="fw-bold pb-2 mt-4">Minha conta</h3>
+        <h3 class="pb-2 mt-4">Minha conta</h3>
         <div class="borda-verde"> </div>
 
         <div class="d-flex flex-row">
@@ -102,7 +102,7 @@
 
         <!------------------------------------------- Apagar Conta ------------------------------------------->
 
-        <h3 class="fw-bold pb-2 mt-4">Apagar Conta</h3>
+        <h3 class="pb-2 mt-4">Apagar Conta</h3>
         <p>
           Esta ação é irreversível. Ao prosseguir, todos os dados associados às
           suas avaliações e informações pessoais serão excluídos de forma
