@@ -1,0 +1,53 @@
+CREATE DATABASE IF NOT EXISTS protocolo_rural;
+
+USE protocolo_rural;
+
+-- Usuários
+CREATE TABLE IF NOT EXISTS usuarios (
+	id_usuario BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	celular VARCHAR(20) NOT NULL,
+	senha VARCHAR(255) NOT NULL,
+	ativo BOOLEAN NOT NULL DEFAULT TRUE,
+	is_admin BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+-- Indicadores
+CREATE TABLE IF NOT EXISTS indicadores (
+	id_indicador BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	descricao VARCHAR(255) NOT NULL,
+	estado BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+-- Parâmetros
+CREATE TABLE IF NOT EXISTS parametros (
+	id_parametro BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	indicador_id BIGINT UNSIGNED NOT NULL,
+	descricao VARCHAR(255) NOT NULL,
+	valor TINYINT NOT NULL,
+	FOREIGN KEY (indicador_id) REFERENCES indicadores(id_indicador) ON DELETE CASCADE
+);
+
+-- Avaliações
+CREATE TABLE IF NOT EXISTS avaliacoes (
+	id_avaliacao BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nome_propriedade VARCHAR(255) NOT NULL,
+	usuario_id BIGINT UNSIGNED NOT NULL,
+	data_avaliacao DATE NOT NULL,
+	grau_sustentabilidade INT UNSIGNED NOT NULL,
+	grau_porcentagem DECIMAL(5,2) NOT NULL,
+	finalizado BOOLEAN NOT NULL DEFAULT FALSE,
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS respostas (
+	id_resposta BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	avaliacao_id BIGINT UNSIGNED NOT NULL,
+	indicador_id BIGINT UNSIGNED NOT NULL,
+	parametro_id BIGINT UNSIGNED NOT NULL,
+	FOREIGN KEY (avaliacao_id) REFERENCES avaliacoes(id_avaliacao) ON DELETE CASCADE,
+	FOREIGN KEY (indicador_id) REFERENCES indicadores(id_indicador),
+	FOREIGN KEY (parametro_id) REFERENCES parametros(id_parametro)
+);
