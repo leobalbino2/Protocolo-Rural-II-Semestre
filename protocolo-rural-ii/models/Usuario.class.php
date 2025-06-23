@@ -12,17 +12,50 @@ class Usuario
     ) {}
 
     // Getters
-    public function getIdUsuario(): int { return $this->id_usuario; }
-    public function getNome(): string { return $this->nome; }
-    public function getEmail(): string { return $this->email; }
-    public function getCelular(): string { return $this->celular; }
-    public function getSenha(): string { return $this->senha; }
+    public function getIdUsuario(): int 
+    { 
+        return $this->id_usuario; 
+    }
+
+    public function getNome(): string 
+    { 
+        return $this->nome; 
+    }
+
+    public function getEmail(): string 
+    { 
+        return $this->email; 
+    }
+
+    public function getCelular(): string 
+    { 
+        return $this->celular; 
+    }
+
+    public function getSenha(): string 
+    { 
+        return $this->senha; 
+    }
 
     // Setters
-    public function setNome(string $nome): void { $this->nome = $nome; }
-    public function setEmail(string $email): void { $this->email = $email; }
-    public function setCelular(string $celular): void { $this->celular = $celular; }
-    public function setSenha(string $senha): void { $this->senha = $senha; }
+    public function setNome(string $nome): void 
+    {
+         $this->nome = $nome; 
+    }
+
+    public function setEmail(string $email): void 
+    { 
+        $this->email = $email; 
+    }
+    public function setCelular(string $celular): void 
+    { 
+        $this->celular = $celular; 
+    }
+
+    public function setSenha(string $senha): void 
+    { 
+        $this->senha = $senha; 
+    }
 
     // Buscar por ID
     public function buscarPorId(int $id): ?array {

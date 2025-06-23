@@ -97,6 +97,26 @@ class Avaliacao
         return $avaliacoes;
     }
 
+    // Buscar por id
+    public static function buscarPorId(PDO $conn, int $id_avaliacao): ?Avaliacao {
+    $sql = "SELECT * FROM avaliacoes WHERE id_avaliacao = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id_avaliacao]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            return new Avaliacao(
+                $row['id_avaliacao'],
+                $row['usuario_id'],
+                $row['nome_propriedade'],
+                $row['data_avaliacao'],
+                $row['grau_sustentabilidade'],
+                $row['grau_porcentagem'],
+                (bool)$row['finalizado']
+            );
+        }
+        return null;
+    }
+
     // Salvar nova avaliação 
     public function salvar(PDO $conn): bool {
         $sql = "INSERT INTO avaliacoes (usuario_id, nome_propriedade, data_avaliacao, grau_sustentabilidade, grau_porcentagem, finalizado)

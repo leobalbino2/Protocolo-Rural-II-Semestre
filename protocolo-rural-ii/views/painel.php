@@ -31,9 +31,9 @@
                 <td class="text-end align-middle">
                   <?php if ($avaliacao->isFinalizado()): ?>
                     <button class="btn btn-sbmt2 me-2">Ver Resultados</button>
-                  <?php else: ?>
-                    <button class="btn btn-sbmt4 me-2">Realizar Avaliação</button>
-                  <?php endif; ?>
+                <?php else: ?>
+                  <a href="<?=$base?>/avaliacao?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt4 me-2">Realizar Avaliação</a>
+                <?php endif; ?>
                   <form method="POST" action="" style="display:inline;" onsubmit="return confirm('Deseja realmente remover esta avaliação?');">
                     <input type="hidden" name="remover_avaliacao" value="1">
                     <input type="hidden" name="id_avaliacao" value="<?= $avaliacao->getIdAvaliacao() ?>">
