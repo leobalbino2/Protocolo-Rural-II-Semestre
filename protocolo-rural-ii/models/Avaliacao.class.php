@@ -117,20 +117,68 @@ class Avaliacao
         return null;
     }
 
-    // Salvar nova avaliação 
-    public function salvar(PDO $conn): bool {
-        $sql = "INSERT INTO avaliacoes (usuario_id, nome_propriedade, data_avaliacao, grau_sustentabilidade, grau_porcentagem, finalizado)
-                VALUES (?, ?, ?, ?, ?, ?)";
+    private function calcularGraus(PDO $conn): void
+    {
+        // Busca todos os parametros (valor) associados a esta avaliação
+        $sql = "SELECT p.valor
+                FROM respostas r
+                JOIN parametros p ON r.parametro_id = p.id_parametro
+                WHERE r.avaliacao_id = ?";
         $stmt = $conn->prepare($sql);
-        return $stmt->execute([
-            $this->usuario_id,
-            $this->nome_propriedade,
-            $this->data_avaliacao,
-            $this->grau_sustentabilidade,
-            $this->grau_porcentagem,
-            $this->finalizado ? 1 : 0
-        ]);
+        $stmt->execute([$this->id_avaliacao]);
+        $valores = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        $total_parametros = count($valores);
+        $total_maximo = $total_parametros * 5;
+        $total_obtido = array_sum($valores);
+
+        $this->grau_sustentabilidade = $total_obtido;
+        $this->grau_porcentagem = $total_maximo > 0 ? round(100 * $total_obtido / $total_maximo, 2) : 0.0;
     }
+
+        // Salvar nova avaliação 
+        public function salvar(PDO $conn): bool
+    {
+        // Só calcula se já tiver um id
+        if ($this->id_avaliacao > 0) {
+            $this->calcularGraus($conn);
+        }
+
+        if ($this->id_avaliacao === 0) {
+            // Inserir nova avaliação (graus começam em 0)
+            $sql = "INSERT INTO avaliacoes (usuario_id, nome_propriedade, data_avaliacao, grau_sustentabilidade, grau_porcentagem, finalizado)
+                    VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $success = $stmt->execute([
+                $this->usuario_id,
+                $this->nome_propriedade,
+                $this->data_avaliacao,
+                $this->grau_sustentabilidade,
+                $this->grau_porcentagem,
+                $this->finalizado ? 1 : 0
+            ]);
+            if ($success) {
+                $this->id_avaliacao = $conn->lastInsertId();
+            }
+            return $success;
+        } else {
+            // Atualizar avaliação existente (com os graus recalculados)
+            $sql = "UPDATE avaliacoes 
+                    SET usuario_id = ?, nome_propriedade = ?, data_avaliacao = ?, grau_sustentabilidade = ?, grau_porcentagem = ?, finalizado = ?
+                    WHERE id_avaliacao = ?";
+            $stmt = $conn->prepare($sql);
+            return $stmt->execute([
+                $this->usuario_id,
+                $this->nome_propriedade,
+                $this->data_avaliacao,
+                $this->grau_sustentabilidade,
+                $this->grau_porcentagem,
+                $this->finalizado ? 1 : 0,
+                $this->id_avaliacao
+            ]);
+        }
+    }
+
 
     // Remover avaliação 
     public static function remover(PDO $conn, int $id_avaliacao, int $usuario_id): bool {
