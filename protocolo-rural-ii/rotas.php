@@ -40,6 +40,7 @@ $route->post("/cadastro", array(CadastroController::class, "cadastro"));
 
 //Minha Conta
 $route->get("/minhaconta", [MinhaContaController::class, "minhaConta"]);
+$route->post("/minhaconta", [MinhaContaController::class, "minhaConta"]);
 
 //Logout
 $route->get("/logout", [LogoutController::class, "logout"]);
@@ -49,6 +50,7 @@ $route->get("/esqueciSenha", [EsqueciSenhaController::class, "esqueciSenha"]);
 
 //Painel
 $route->get("/painel", [PainelController::class, "painel"]);
+$route->post("/painel", [PainelController::class, "painel"]);
 
 //Como Usar
 $route->get("/comousar", [ComoUsarController::class, "comoUsar"]);

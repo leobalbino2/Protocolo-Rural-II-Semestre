@@ -77,7 +77,7 @@ $base = '/protocolo-rural-ii';
           <!------------------------------------------- Login Desktop ------------------------------------------->
           <div class="fs-5 col-2 d-none d-lg-flex justify-content-end">
             <a
-              class="nav-link ms-2 py-2 px-3 txt-green border green-hvr green-actv-2"
+              class="nav-link ms-2 py-2 px-3 txt-green border green-hvr"
               href="<?=$base?>/login"
               >Acessar</a
             >

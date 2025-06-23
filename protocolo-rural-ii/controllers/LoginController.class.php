@@ -7,8 +7,8 @@ class LoginController {
 
         session_start();
 
-        // redireciona usuário
-        if (isset($_SESSION['usuario'])) {
+        // redireciona usuário se já estiver logado
+        if (isset($_SESSION['usuario']) && is_array($_SESSION['usuario']) && isset($_SESSION['usuario']['id_usuario'])) {
             header('Location: /protocolo-rural-ii/painel');
             exit;
         }
@@ -26,10 +26,12 @@ class LoginController {
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($usuario && password_verify($senha, $usuario['senha'])) {
-                session_start();
-                $_SESSION['id_usuario'] = $usuario['id_usuario'];
-                $_SESSION['usuario'] = $usuario['email'];
-            
+                // Salva o usuário na sessão como array associativo
+                $_SESSION['usuario'] = [
+                    'id_usuario' => $usuario['id_usuario'],
+                    'nome' => $usuario['nome'] ?? '',
+                    'email' => $usuario['email']
+                ];
                 header('Location: /protocolo-rural-ii/painel');
                 exit;
             } else {

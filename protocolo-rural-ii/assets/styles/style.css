@@ -204,6 +204,17 @@
     color: var(--white);
     background-color: var(--red);
   }
+
+  .btn-sbmt4 {
+    color: black;
+    background-color: var(--yellow);
+  }
+
+  .btn-sbmt4:hover {
+    color: black;;
+    background-color: #C6A34B;
+  }
+
   
   .cursor-pointer {
     cursor: pointer;
