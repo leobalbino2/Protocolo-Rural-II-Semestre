@@ -34,24 +34,10 @@
             <li class="pb-4">
                 <h3> O que são Indicadores ? </h3>
                 <hr>
-                <p> Os Indicadores de Sustentabilidade usados nessa aplicação visam medir o grau de sustentabilidade de propriedades rurais para que o proprietário possa nortear sua tomada de decisões e consequentemente melhorar suas praticas. Foram selecionados 15 indicadores dentre os sistemas:  ISA (Indicadores de Sustentabilidade em Agroecossistemas), MESMIS (Marco Evolutivo dos Sistemas de Manejo de Recursos Naturais incorporando Indicadores de Sustentabilidade) e o Sistema Integrado de Avaliação de Impacto Ambiental.
+                <p> Os Indicadores de Sustentabilidade usados nessa aplicação visam medir o grau de sustentabilidade de propriedades rurais para que o proprietário possa nortear sua tomada de decisões e consequentemente melhorar suas praticas.
                     <br><br>
-                    Entenda mais sobre cada um dos indicadores selecionados abaixo:</p>
+        
             </li>
         </ol>
-
-        <div class="accordion accordion-flush" id="accordionFlush1">
-
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                <h4>Situação das Nascentes</h4>
-              </button>
-            </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body"> <p>As nascentes, essenciais para a formação de rios, irrigação de florestas e abastecimento de água, são protegidas pela Lei nº 12.651/2012, que estabelece Áreas de Preservação Permanente (APP) com raio mínimo de 50 metros ao redor delas. Contudo, em áreas rurais consolidadas, atividades como agropecuária e turismo são permitidas, desde que haja recomposição de pelo menos 15 metros de vegetação nativa. Este indicador avalia o cumprimento dessas normas, essenciais para a conservação hídrica e ambiental.</p></div>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
