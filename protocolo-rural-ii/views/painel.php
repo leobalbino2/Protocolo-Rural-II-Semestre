@@ -21,32 +21,32 @@
             </th>
           </tr>
         </thead>
-        <tbody class="table-group-divider border-top-0">
-          <?php if (!empty($avaliacoes)): ?>
-            <?php foreach ($avaliacoes as $avaliacao): ?>
+          <tbody class="table-group-divider border-top-0">
+            <?php if (!empty($avaliacoes)): ?>
+              <?php foreach ($avaliacoes as $avaliacao): ?>
+                <tr>
+                  <td><p class="my-2"><?= htmlspecialchars($avaliacao->getNomePropriedade()) ?></p></td>
+                  <td><p class="my-2"><?= $avaliacao->isFinalizado() ? 'Finalizado' : 'Em Andamento' ?></p></td>
+                  <td><p class="my-2"><?= number_format($avaliacao->getGrauPorcentagem(), 2, ',', '.') ?>%</p></td>
+                  <td class="text-end align-middle">
+                    <?php if ($avaliacao->isFinalizado()): ?>
+                      <a href="<?= $base ?>/resultado?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt2 me-2">Ver Resultados</a>
+                  <?php else: ?>
+                    <a href="<?=$base?>/avaliacao?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt4 me-2">Realizar Avaliação</a>
+                  <?php endif; ?>
+                    <form method="POST" action="" style="display:inline;" onsubmit="return confirm('Deseja realmente remover esta avaliação?');">
+                      <input type="hidden" name="remover_avaliacao" value="1">
+                      <input type="hidden" name="id_avaliacao" value="<?= $avaliacao->getIdAvaliacao() ?>">
+                      <button type="submit" class="btn btn-sbmt3">Remover</button>
+                    </form>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+          <?php else: ?>
               <tr>
-                <td><p class="my-2"><?= htmlspecialchars($avaliacao->getNomePropriedade()) ?></p></td>
-                <td><p class="my-2"><?= $avaliacao->isFinalizado() ? 'Finalizado' : 'Em Andamento' ?></p></td>
-                <td><p class="my-2"><?= number_format($avaliacao->getGrauPorcentagem(), 2, ',', '.') ?>%</p></td>
-                <td class="text-end align-middle">
-                  <?php if ($avaliacao->isFinalizado()): ?>
-                    <button class="btn btn-sbmt2 me-2">Ver Resultados</button>
-                <?php else: ?>
-                  <a href="<?=$base?>/avaliacao?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt4 me-2">Realizar Avaliação</a>
-                <?php endif; ?>
-                  <form method="POST" action="" style="display:inline;" onsubmit="return confirm('Deseja realmente remover esta avaliação?');">
-                    <input type="hidden" name="remover_avaliacao" value="1">
-                    <input type="hidden" name="id_avaliacao" value="<?= $avaliacao->getIdAvaliacao() ?>">
-                    <button type="submit" class="btn btn-sbmt3">Remover</button>
-                  </form>
-                </td>
+                <td colspan="5"><p class="my-2 text-center">Nenhuma avaliação encontrada.</p></td>
               </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr>
-              <td colspan="5"><p class="my-2 text-center">Nenhuma avaliação encontrada.</p></td>
-            </tr>
-        <?php endif; ?>
+          <?php endif; ?>
         </tbody>
       </table>
     </div>

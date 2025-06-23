@@ -2,217 +2,110 @@
 // Página de Resultado da Avaliação - Página HTML estruturada com PHP
 ?>
 
-
 <!----------------------------------- Main ----------------------------------->
 <main>
-      <div class="container mt-5 pt-5 pb-5">
-        <div>
-          <div class="d-flex mt-2">
-            <img
-              class="cursor-pointer"
-              id="voltar"
-              class="d-none d-lg-block pe-auto"
-              src="../../imgs/seta.png"
-              alt="voltar"
-              width="29"
-              onclick="window.history.back()"
-            />
-            <h5 class="fw-bold m-3 text-center">Voltar</h5>
-          </div>
-        </div>
-    
-        <h3 class="fw-bold pb-2">
-          Resultados <span id="nomeAvaliacao" class="m-5 txt-gray ">Exemplo Fazenda</span>
-        </h3>
-    
-        <div class="table-responsive ">
-            <table class="table">
-              <thead class="fundo-tabela">
-                <tr>
-                  <th colspan="8"><h4 class="mb-0">Indicadores</h4></th>
-                </tr>
-              </thead>
-              <tbody class="table-group-divider border-top-0">
-                <tr>
-                  <td><p class="my-2">Nome do Indicador</p></td>
-                  <td><p class="w-10 my-2 text-center">Muito Baixo</p></td>
-                  <td><p class="w-10 my-2 text-center">Baixo</p></td>
-                  <td><p class="w-10 my-2 text-center">Insuficiente</p></td>
-                  <td><p class="w-10 my-2 text-center">Limitado</p></td>
-                  <td><p class="w-10 my-2 text-center">Parcial</p></td>
-                  <td><p class="w-10 my-2 text-center">Pleno</p></td>
-                  <td><p class="w-10 my-2 text-center">Avaliação</p></td>
-                </tr>
+  <div class="container mt-5 pt-5 pb-5">
+    <div mt-5>
+      <h3 class="pb-2">
+        Resultado: <span id="nomeAvaliacao" class="m-1 txt-gray"><?= htmlspecialchars($avaliacao->getNomePropriedade()); ?></span>
+      </h3>
 
+      <div class="table-responsive ">
+        <table class="table">
+          <thead class="fundo-tabela">
+            <tr>
+              <th colspan="1"><h4 class="mb-0">Indicador</h4></th>
+              <th colspan="1"><h4 class="mb-0">Parâmetro Selecionado</h4></th>
+              <th colspan="1"><h4 class="mb-0">Resultado</h4></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider border-top-0">
+            <?php if (!empty($respostas)): ?>
+              <?php foreach ($respostas as $resposta): ?>
                 <tr>
-                    <td><p class="my-2">Situação das Nascentes</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res1" class="my-2">-</p></td>
+                  <td><?= htmlspecialchars($resposta->getNomeIndicador()) ?></td>
+                  <td><?= htmlspecialchars($resposta->getDescricaoParametro()) ?></td>
+                  <td><?= htmlspecialchars($resposta->getValorParametro()) ?></td>
                 </tr>
-                
-                <tr>
-                    <td><p class="my-2">Situação das Nascentes</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res2" class="my-2">-</p></td>
-                </tr>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td colspan="3"><p class="my-2 text-center">Nenhuma resposta encontrada.</p></td>
+              </tr>
+            <?php endif; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-                <tr>
-                    <td><p class="my-2">Áreas de Preservação Permanente (APP) </p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res3" class="my-2">-</p></td>
-                </tr>
+    <!-- Bloco do gráfico de resultados -->
+    <div class="my-5">
+      <h4 class="mb-3">Visualização Gráfica dos Indicadores</h4>
+      <div style="max-width: 600px; margin: auto;">
+        <canvas id="polarChart"></canvas>
+      </div>
+    </div>
 
-                <tr>
-                    <td><p class="my-2">Reserva Legal (RL) </p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res4" class="my-2">-</p></td>
-                </tr>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Dados vindos do PHP
+      const labels = [
+        <?php foreach($respostas as $resposta): ?>
+          "<?= htmlspecialchars($resposta->getNomeIndicador()) ?>",
+        <?php endforeach; ?>
+      ];
+      const dataValores = [
+        <?php foreach($respostas as $resposta): ?>
+          <?= (int)$resposta->getValorParametro() ?>,
+        <?php endforeach; ?>
+      ];
 
-                <tr>
-                    <td><p class="my-2">Regularização Ambiental</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res5" class="my-2">-</p></td>
-                </tr>
+      // Cores para cada indicador
+      const backgroundColors = [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)',
+        'rgba(255, 205, 86, 0.5)',
+        'rgba(75, 192, 192, 0.5)',
+        'rgba(153, 102, 255, 0.5)',
+        'rgba(255, 159, 64, 0.5)',
+        'rgba(201, 203, 207, 0.5)'
+      ];
 
-                <tr>
-                    <td><p class="my-2">Áreas Degradadas</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res6" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Conservação de Solo, Carreadores e Estradas Rurais</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res7" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Diversidade do Agroecossistema</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res8" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Manejo Agronômico</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res9" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Ecotecnologias</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res10" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Infraestrutura do Imóvel Rural</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res11" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Produtividade e Rentabilidade</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res12" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Gerenciamento de Resíduos Sólidos</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res13" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Saneamento Rural</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res14" class="my-2">-</p></td>
-                </tr>
-
-                <tr>
-                    <td><p class="my-2">Saúde e Segurança no Trabalho Rural</p></td>
-                    <td class="w-10 text-center"><p class="my-2">0</p></td>
-                    <td class="w-10 text-center"><p class="my-2">1</p></td>
-                    <td class="w-10 text-center"><p class="my-2">2</p></td>
-                    <td class="w-10 text-center"><p class="my-2">3</p></td>
-                    <td class="w-10 text-center"><p class="my-2">4</p></td>
-                    <td class="w-10 text-center"><p class="my-2">5</p></td>
-                    <td class="w-10 text-center"><p id="res15" class="my-2">-</p></td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-          <div style="height: 45vh"></div>
-        </div>
-  
-    </main>
+      const ctx = document.getElementById('polarChart').getContext('2d');
+      const polarChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Pontuação do Indicador',
+            data: dataValores,
+            backgroundColor: backgroundColors.slice(0, labels.length),
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Pontuação dos Indicadores'
+            }
+          },
+          scales: {
+            r: {
+              pointLabels: {
+                display: true,
+                centerPointLabels: true,
+                font: { size: 16 }
+              },
+              min: 0,
+              max: 5
+            }
+          }
+        }
+      });
+    </script>
+</main>
