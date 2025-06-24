@@ -57,6 +57,7 @@ INSERT INTO indicadores (nome, descricao, estado) VALUES
 ('Situação das Nascentes', 'A situação das nascentes refere-se ao estado de preservação e proteção dos locais onde a água brota naturalmente do solo, formando rios e córregos.', 1),
 ('Áreas de Preservação Permanente (APP)', 'São áreas protegidas por lei, como margens de rios, encostas e nascentes, que devem ser conservadas para proteger a água, o solo e a biodiversidade, evitando deslizamentos e enchentes.', 1),
 ('Reserva Legal (RL)', 'É a parte de uma propriedade rural que deve ser mantida com vegetação nativa, mesmo podendo ter uso sustentável. Ela ajuda a conservar a biodiversidade e os recursos naturais da região.', 1);
+('Regularização Ambiental', 'A situação das nascentes refere-se ao estado de preservação e proteção dos locais onde a água brota naturalmente do solo, formando rios e córregos.', 0);
 
 -- Parâmetros para indicador 1
 INSERT INTO parametros (indicador_id, descricao, valor) VALUES
@@ -78,9 +79,12 @@ INSERT INTO parametros (indicador_id, descricao, valor) VALUES
 
 -- Parâmetros para indicador 3
 INSERT INTO parametros (indicador_id, descricao, valor) VALUES
-(3, 'Totalidade da RL com vegetação remanescente/restaurada/em restauração na propriedade (conforme o Capítulo IV da Lei Federal nº. 12.651/2012).', 5),
-(3, 'Pelo menos 50% da RL com vegetação remanescente/restaurada/em restauração na propriedade (conforme o Capítulo IV da Lei Federal nº. 12.651/2012) e o restante compensada na região/bacia hidrográfica (conforme o artigo 66 da Lei Federal nº. 12.651/2012).', 4),
-(3, 'Pelo menos 50% da RL com vegetação remanescente/restaurada/em restauração na propriedade (conforme o Capítulo IV da Lei Federal nº. 12.651/2012) e restante compensada fora de região/bacia hidrográfica (conforme o artigo 66 da Lei Federal nº. 12.651/2012).', 3),
-(3, 'Menos de 50% da RL com vegetação remanescente/restaurada/em restauração na propriedade (conforme o Capítulo IV da Lei Federal nº. 12.651/2012), e o restante compensada na região/bacia hidrográfica ou 100% da RL compensada na região/bacia hidrográfica (conforme o artigo 66 da Lei Federal nº. 12.651/2012).', 2),
-(3, 'Menos de 50% da RL com vegetação remanescente/restaurada/em restauração na propriedade (conforme o Capítulo IV da Lei Federal nº. 12.651/2012), e o restante compensada fora da região/bacia hidrográfica ou 100% da RL compensada fora da região/bacia hidrográfica (conforme o artigo 66 da Lei Federal nº. 12.651/2012).', 1),
-(3, 'Sem RL e/ou compensação.', 0);
+INSERT INTO parametros (indicador_id, descricao, valor) VALUES
+(4, 'A propriedade está cadastrada no CAR, possui PRA (ou dispensa) e tem suas licenças ambientais e outorgas (ou dispensa de outorga) atualizadas em conformidade com as atividades que exerce.', 5),
+(4, 'A propriedade está cadastrada no CAR, não possui PRA, e tem suas licenças ambientais e outorgas (ou dispensa de outorga) atualizadas em conformidade com as atividades que exerce.', 4),
+(4, 'A propriedade está cadastrada no CAR, não possui PRA, e suas licenças ambientais ou outorgas não estão atualizadas em conformidade com as atividades que exerce.', 3),
+(4, 'A propriedade não está cadastrada no CAR, e suas licenças ambientais e outorgas não estão atualizadas em conformidade com as atividades que exerce. ', 2),
+(4, 'A propriedade não está cadastrada no CAR e não possui parte das licenças ambientais e outorgas em conformidade com as atividades que exerce.', 1),
+(4, 'A propriedade não está cadastrada no CAR e não tem as licenças ambientais e outorgas que permitem exercer suas atividades.', 0);
+
+-- Parâmetros para indicador 4
