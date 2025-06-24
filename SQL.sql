@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS respostas (
 INSERT INTO indicadores (nome, descricao, estado) VALUES 
 ('Situação das Nascentes', 'A situação das nascentes refere-se ao estado de preservação e proteção dos locais onde a água brota naturalmente do solo, formando rios e córregos.', 1),
 ('Áreas de Preservação Permanente (APP)', 'São áreas protegidas por lei, como margens de rios, encostas e nascentes, que devem ser conservadas para proteger a água, o solo e a biodiversidade, evitando deslizamentos e enchentes.', 1),
-('Reserva Legal (RL)', 'É a parte de uma propriedade rural que deve ser mantida com vegetação nativa, mesmo podendo ter uso sustentável. Ela ajuda a conservar a biodiversidade e os recursos naturais da região.', 1);
+('Reserva Legal (RL)', 'É a parte de uma propriedade rural que deve ser mantida com vegetação nativa, mesmo podendo ter uso sustentável. Ela ajuda a conservar a biodiversidade e os recursos naturais da região.', 1),
 ('Regularização Ambiental', 'A situação das nascentes refere-se ao estado de preservação e proteção dos locais onde a água brota naturalmente do solo, formando rios e córregos.', 0);
 
 -- Parâmetros para indicador 1
