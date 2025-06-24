@@ -52,6 +52,10 @@ $route->get("/esqueciSenha", [EsqueciSenhaController::class, "esqueciSenha"]);
 $route->get("/painel", [PainelController::class, "painel"]);
 $route->post("/painel", [PainelController::class, "painel"]);
 
+// Gestão
+$route->get("/gestao", [GestaoController::class, "gestao"]);
+$route->post("/gestao", [GestaoController::class, "gestao"]);
+
 // Avaliação
 $route->get("/avaliacao", [AvaliacaoController::class, "avaliacao"]);
 $route->post("/avaliacao", [AvaliacaoController::class, "avaliacao"]);

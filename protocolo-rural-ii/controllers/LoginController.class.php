@@ -26,12 +26,15 @@ class LoginController {
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($usuario && password_verify($senha, $usuario['senha'])) {
-                // Salva o usuário na sessão como array associativo
                 $_SESSION['usuario'] = [
-                    'id_usuario' => $usuario['id_usuario'],
-                    'nome' => $usuario['nome'] ?? '',
-                    'email' => $usuario['email']
-                ];
+                'id_usuario' => $usuario['id_usuario'],
+                'nome' => $usuario['nome'] ?? '',
+                'email' => $usuario['email'],
+                'isAdmin' => $usuario['is_admin'] ?? 0 
+            ];
+
+                $_SESSION['isAdmin'] = $usuario['isAdmin'] ?? 0;
+
                 header('Location: /protocolo-rural-ii/painel');
                 exit;
             } else {
@@ -44,4 +47,3 @@ class LoginController {
         include './views/footer.php';
     }
 }
-?>

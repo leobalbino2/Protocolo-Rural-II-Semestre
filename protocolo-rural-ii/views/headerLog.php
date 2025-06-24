@@ -6,7 +6,6 @@ $base = '/protocolo-rural-ii';
 ?>
 
 <!DOCTYPE html>
-
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -19,19 +18,17 @@ $base = '/protocolo-rural-ii';
         echo "<link rel='stylesheet' href='$href'>";
     }
     ?>
-
   </head>
 
   <body>
-
   <header>
     <nav id="nav" class="navbar fixed-top min-vh-10 d-flex align-items-center fundo-header">
       <div class="container">
         <!-- Logo -->
         <div class="col-2 d-flex">
           <a class="navbar-brand" href="<?= $base ?>/painel">
-            <img class="d-none d-lg-block mt-2"  src="<?= $base ?>./uploads/logo.png" alt="logo" width="225" height="32" />
-            <img class="d-block d-lg-none" src="<?= $base ?>./uploads/logomobile.png" alt="logo" width="30" height="32" />
+            <img class="d-none d-lg-block mt-2" src="<?= $base ?>/uploads/logo.png" alt="logo" width="225" height="32" />
+            <img class="d-block d-lg-none" src="<?= $base ?>/uploads/logomobile.png" alt="logo" width="30" height="32" />
           </a>
         </div>
 
@@ -39,19 +36,24 @@ $base = '/protocolo-rural-ii';
         <div class="col-8 d-none d-lg-block">
           <ul class="nav me-auto list-inline fs-5 justify-content-center">
             <li class="nav-item">
-              <a class="nav-link mx-1.5 txt-gray list-hvr <?= ($pagina === 'painel') ? 'green-actv pag-atual' : '' ?> " href="<?= $base ?>/painel">Painel</a>
+              <a class="nav-link mx-1.5 txt-gray list-hvr <?= ($pagina === 'painel') ? 'green-actv pag-atual' : '' ?>" href="<?= $base ?>/painel">Painel</a>
             </li>
+            <?php if (!empty($_SESSION['usuario']['isAdmin']) && $_SESSION['usuario']['isAdmin'] == 1): ?>
+              <li class="nav-item">
+                <a class="nav-link mx-1.5 txt-gray list-hvr <?= ($pagina === 'gestao') ? 'green-actv pag-atual' : '' ?>" href="<?= $base ?>/gestao">Gestão</a>
+              </li>
+            <?php endif; ?>
             <li class="nav-item">
-              <a class="nav-link mx-1.5 txt-gray list-hvr <?= ($pagina === 'comousar') ? 'green-actv pag-atual' : '' ?> " href="<?= $base ?>/comousar">Como Usar</a>
+              <a class="nav-link mx-1.5 txt-gray list-hvr <?= ($pagina === 'comousar') ? 'green-actv pag-atual' : '' ?>" href="<?= $base ?>/comousar">Como Usar</a>
             </li>
           </ul>
         </div>
 
         <!-- Login Desktop -->
         <div class="fs-5 col-2 d-none d-lg-flex justify-content-end">
-          <a class="nav-link ms-2 py-2 px-3 txt-green border green-hvr <?= ($pagina === 'minhaconta') ? 'green-actv-2' : '' ?> " href="<?= $base ?>/minhaconta">Perfil</a>
+          <a class="nav-link ms-2 py-2 px-3 txt-green border green-hvr <?= ($pagina === 'minhaconta') ? 'green-actv-2' : '' ?>" href="<?= $base ?>/minhaconta">Perfil</a>
           <a class="nav-link ms-2 py-2 px-3 txt-green border green-hvr" href="<?= $base ?>/logout">Sair</a>
-       </div>
+        </div>
 
         <!-- Menu Mobile -->
         <div class="d-lg-none">
@@ -65,11 +67,13 @@ $base = '/protocolo-rural-ii';
       <div class="col-12 collapse text-center d-lg-none" id="navbarToggleExternalContent">
         <div id="overlay" class="p-4">
           <a class="txt-green text-decoration-none" href="<?= $base ?>/painel"><h1>Painel</h1></a>
+          <?php if (!empty($_SESSION['usuario']['isAdmin']) && $_SESSION['usuario']['isAdmin'] == 1): ?>
+            <a class="txt-green text-decoration-none" href="<?= $base ?>/gestao"><h1>Gestão</h1></a>
+          <?php endif; ?>
           <a class="txt-green text-decoration-none" href="<?= $base ?>/comousar"><h1>Como Usar</h1></a>
           <a class="txt-green text-decoration-none" href="<?= $base ?>/minhaconta"><h1>Meu Perfil</h1></a>
           <a class="txt-green text-decoration-none" href="<?= $base ?>/logout"><h1>Sair</h1></a>
         </div>
       </div>
     </nav>
-
   </header>

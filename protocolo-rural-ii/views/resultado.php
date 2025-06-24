@@ -36,20 +36,30 @@
           </tbody>
         </table>
       </div>
-    </div>
+    
 
-    <!-- Bloco do gráfico de resultados -->
-    <div class="my-5">
-      <h4 class="mb-3">Visualização Gráfica dos Indicadores</h4>
-      <div style="max-width: 600px; margin: auto;">
-        <canvas id="polarChart"></canvas>
+    <!-- Container das duas colunas -->
+    <div style="display: flex; gap: 40px; justify-content: center; align-items: flex-start; margin: 40px 0; flex-wrap: wrap;">
+
+      <!-- Gráfico de porcentagem sustentabilidade -->
+      <div style="flex: 1 1 300px; max-width: 500px;">
+        <h4 class="mb-3 text-center">Grau de Sustentabilidade da Propriedade</h4>
+        <div>
+          <canvas id="barSustentabilidadeChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfico de indicadores -->
+      <div style="flex: 1 1 300px; max-width: 600px;">
+        <h4 class="mb-3 text-center">Visualização Gráfica dos Indicadores</h4>
+        <div>
+          <canvas id="polarChart" width="400" height="400"></canvas>
+        </div>
       </div>
     </div>
 
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Variáveis JS vindas do PHP -->
     <script>
-      // Dados vindos do PHP
       const labels = [
         <?php foreach($respostas as $resposta): ?>
           "<?= htmlspecialchars($resposta->getNomeIndicador()) ?>",
@@ -60,8 +70,6 @@
           <?= (int)$resposta->getValorParametro() ?>,
         <?php endforeach; ?>
       ];
-
-      // Cores para cada indicador
       const backgroundColors = [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.5)',
@@ -71,41 +79,12 @@
         'rgba(255, 159, 64, 0.5)',
         'rgba(201, 203, 207, 0.5)'
       ];
-
-      const ctx = document.getElementById('polarChart').getContext('2d');
-      const polarChart = new Chart(ctx, {
-        type: 'polarArea',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Pontuação do Indicador',
-            data: dataValores,
-            backgroundColor: backgroundColors.slice(0, labels.length),
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              position: 'top',
-            },
-            title: {
-              display: true,
-              text: 'Pontuação dos Indicadores'
-            }
-          },
-          scales: {
-            r: {
-              pointLabels: {
-                display: true,
-                centerPointLabels: true,
-                font: { size: 16 }
-              },
-              min: 0,
-              max: 5
-            }
-          }
-        }
-      });
+      // Adicione esta linha abaixo:
+      const grauSustentabilidade = <?= (int)$avaliacao->getGrauPorcentagem() ?>;
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/scripts/grafico_parametro.js"></script>
+    <script src="./assets/scripts/grafico_sustentabilidade.js"></script>
+    
+  </div>
 </main>

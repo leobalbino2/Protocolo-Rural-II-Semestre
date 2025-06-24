@@ -30,9 +30,9 @@
                   <td><p class="my-2"><?= number_format($avaliacao->getGrauPorcentagem(), 2, ',', '.') ?>%</p></td>
                   <td class="text-end align-middle">
                     <?php if ($avaliacao->isFinalizado()): ?>
-                      <a href="<?= $base ?>/resultado?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt2 me-2">Ver Resultados</a>
+                      <a href="<?= $base ?>/resultado?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt2">Ver Resultados</a>
                   <?php else: ?>
-                    <a href="<?=$base?>/avaliacao?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt4 me-2">Realizar Avaliação</a>
+                    <a href="<?=$base?>/avaliacao?id=<?= $avaliacao->getIdAvaliacao() ?>" class="btn btn-sbmt4">Realizar Avaliação</a>
                   <?php endif; ?>
                     <form method="POST" action="" style="display:inline;" onsubmit="return confirm('Deseja realmente remover esta avaliação?');">
                       <input type="hidden" name="remover_avaliacao" value="1">

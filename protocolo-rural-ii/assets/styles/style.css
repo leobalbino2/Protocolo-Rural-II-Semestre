@@ -64,10 +64,6 @@
     color: var(--white);
   }
   
-  .txt-gray {
-    color: var(--txt-gray);
-  }
-  
   .txt-gray2 {
     color: var(--gray3);
   }
@@ -76,6 +72,10 @@
     color: var(--yellow);
   }
   
+  .txt-gray {
+    color: var(--txt-gray);
+  }
+
   .bg-gray {
     background-color: var(--txt-gray);
   }
